@@ -1,4 +1,4 @@
-import { createGlobalStyle } from 'styled-components'
+import { createGlobalStyle } from 'styled-components';
 
 export default createGlobalStyle`
   body {
@@ -9,9 +9,13 @@ export default createGlobalStyle`
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
   }
+  
+  .ant-card .ant-card-body {
+        padding: 0 !important;
+    }
 
   code {
     font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
   }
-`
+`;

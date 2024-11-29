@@ -23,7 +23,7 @@ const Search: React.FC = () => {
     };
 
     return (
-        <div>
+        <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
             <SearchForm onSearch={searchMovies} />
             {loading ? <p>Loading...</p> : <MovieList movies={movies} />}
         </div>

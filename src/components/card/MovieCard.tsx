@@ -1,7 +1,7 @@
 import React from 'react';
 import { Card } from 'antd';
 import { Movie } from '../../types/Movie';
-import styles from './MovieCard.module.css';
+import styles from './MovieCard.module.scss';
 import { format } from 'date-fns';
 
 interface MovieCardProps {
@@ -34,12 +34,11 @@ const MovieCard: React.FC<MovieCardProps> = ({ movie }) => {
             }
         >
             <Card.Meta
+                className={styles.card__body}
                 title={
                     <div className={styles.title}>
-                        <div>
-                            {title}
-                            {truncateText(overview, 20)}
-                        </div>
+                        {title}
+                        {truncateText(overview, 5)}
                         {release_date && <div className={styles.release}>{formatDate(release_date)}</div>}
                     </div>
                 }

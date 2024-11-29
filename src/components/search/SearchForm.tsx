@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { Input } from 'antd';
+import styles from './SearchForm.module.scss';
 
 const { Search } = Input;
 
@@ -16,7 +17,8 @@ const SearchForm: React.FC<SearchFormProps> = ({ onSearch }) => {
 
     return (
         <Search
-            placeholder='Search for a movie'
+            className={styles.input}
+            placeholder='Type to search...'
             value={query}
             onChange={e => setQuery(e.target.value)}
             onSearch={handleSearch}
