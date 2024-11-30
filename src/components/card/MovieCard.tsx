@@ -25,20 +25,13 @@ const MovieCard: React.FC<MovieCardProps> = ({ movie }) => {
     return (
         <Card
             className={styles.card}
-            cover={
-                poster_path ? (
-                    <img className={styles.picture} alt={title} src={`https://image.tmdb.org/t/p/w500${poster_path}`} />
-                ) : (
-                    <div />
-                )
-            }
+            cover={<img className={styles.picture} alt={title} src={`https://image.tmdb.org/t/p/w500${poster_path}`} />}
         >
             <Card.Meta
                 className={styles.card__body}
                 title={
                     <div className={styles.title}>
                         {title}
-                        {truncateText(overview, 5)}
                         {release_date && <div className={styles.release}>{formatDate(release_date)}</div>}
                     </div>
                 }

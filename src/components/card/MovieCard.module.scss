@@ -7,10 +7,12 @@
 
     .picture {
         width: 185px !important;
+        height: 100%;
+        margin-top: 1px;
     }
 
     .card__body {
-        width: 228px;
+        width: 260px;
         padding: 15px;
 
         .title {
