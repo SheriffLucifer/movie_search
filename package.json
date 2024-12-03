@@ -1,5 +1,6 @@
 {
     "name": "search-for-movies",
+    "homepage": "https://SheriffLucifer.github.io/search-for-movies",
     "version": "0.1.0",
     "private": true,
     "dependencies": {
