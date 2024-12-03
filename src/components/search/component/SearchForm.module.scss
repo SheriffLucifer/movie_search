@@ -1,0 +1,15 @@
+@import '../../../assets/mixins';
+
+.input__block {
+    width: 90%;
+    margin-bottom: 30px;
+    margin-top: 30px;
+    text-align: center;
+
+    .input {
+        width: 940px;
+        @include respond(mobile) {
+            width: 340px;
+        }
+    }
+}

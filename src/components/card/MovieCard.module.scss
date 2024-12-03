@@ -11,6 +11,17 @@
         margin-top: 1px;
     }
 
+    .rating {
+        position: absolute;
+        top: 10px;
+        right: 10px;
+        width: 34px;
+        height: 34px;
+        font-weight: 400;
+        font-size: 12px;
+        line-height: 22px;
+    }
+
     .card__body {
         width: 260px;
         padding: 15px;
@@ -26,17 +37,34 @@
                 line-height: 22px;
                 font-weight: 400px;
                 color: grey;
+                margin-top: 5px;
+            }
+
+            .genres {
+                display: inline-block;
+                padding: 4px;
+                margin-top: 10px;
+                font-size: 12px;
+                line-height: 14.52px;
+                border: 1px solid rgba(217, 217, 217, 1);
+                background-color: rgba(250, 250, 250, 1);
+                margin-right: 8px;
+                white-space: nowrap;
             }
         }
 
         .overview {
             font-size: 12px;
             line-height: 22px;
-            font-weight: 400px;
             color: black;
+            margin: 0;
         }
     }
-}
-.ant-card .ant-card-body {
-    padding: 0 !important;
+
+    .stars {
+        position: absolute;
+        bottom: 10px;
+        font-size: 16.5px;
+        margin-left: 15px;
+    }
 }

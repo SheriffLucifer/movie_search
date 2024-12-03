@@ -6,14 +6,15 @@ import styles from './MovieList.module.scss';
 
 interface MovieListProps {
     movies: Movie[];
+    onRate: (movie: Movie, rating: number) => void;
 }
 
-const MovieList: React.FC<MovieListProps> = ({ movies }) => {
+const MovieList: React.FC<MovieListProps> = ({ movies, onRate }) => {
     return (
         <Row className={styles.list}>
             {movies.map(movie => (
                 <Col key={movie.id} xs={24} md={12}>
-                    <MovieCard movie={movie} />
+                    <MovieCard onRate={onRate} movie={movie} />
                 </Col>
             ))}
         </Row>

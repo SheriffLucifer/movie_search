@@ -1,15 +1,18 @@
 import React, { useState } from 'react';
-import SearchForm from './SearchForm';
+import SearchForm from './component/SearchForm';
 import { Movie } from '../../types/Movie';
-import api from '../../api';
+import api from '../../api/api';
 import MovieList from '../list/MovieList';
 import { Alert, Spin } from 'antd';
+import styles from './SearchMovie.module.scss';
+import { useRatedMovies } from '../../context/RatedMoviesProvider';
 
 const SearchMovie: React.FC = () => {
     const [movies, setMovies] = useState<Movie[]>([]);
     const [loading, setLoading] = useState<boolean>(false);
     const [error, setError] = useState<string | null>(null);
     const [offline, setOffline] = useState<boolean>(false);
+    const { addRatedMovie } = useRatedMovies();
 
     const searchMovies = async (query: string) => {
         setLoading(true);
@@ -34,8 +37,12 @@ const SearchMovie: React.FC = () => {
         }
     };
 
+    const handleRateMovie = (movie: Movie, rating: number) => {
+        addRatedMovie(movie, rating);
+    };
+
     return (
-        <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
+        <div className={styles.content}>
             <SearchForm onSearch={searchMovies} />
             {offline && (
                 <Alert
@@ -47,7 +54,11 @@ const SearchMovie: React.FC = () => {
                 />
             )}
             {error && <Alert message='Ошибка' description={error} type='error' showIcon style={{ marginBottom: 20 }} />}
-            {loading ? <Spin size='large' style={{ marginBottom: 20 }} /> : <MovieList movies={movies} />}
+            {loading ? (
+                <Spin size='large' style={{ marginBottom: 20 }} />
+            ) : (
+                <MovieList movies={movies} onRate={handleRateMovie} />
+            )}
         </div>
     );
 };

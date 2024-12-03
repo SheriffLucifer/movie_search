@@ -16,14 +16,16 @@ const SearchForm: React.FC<SearchFormProps> = ({ onSearch }) => {
     };
 
     return (
-        <Search
-            className={styles.input}
-            placeholder='Type to search...'
-            value={query}
-            onChange={e => setQuery(e.target.value)}
-            onSearch={handleSearch}
-            enterButton
-        />
+        <div className={styles.input__block}>
+            <Search
+                className={styles.input}
+                placeholder='Type to search...'
+                value={query}
+                onChange={e => setQuery(e.target.value)}
+                onSearch={handleSearch}
+                enterButton
+            />
+        </div>
     );
 };
 

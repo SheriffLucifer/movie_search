@@ -11,7 +11,7 @@ export default createGlobalStyle`
   }
   
   .ant-card .ant-card-body {
-        padding: 0 !important;
+        padding: 0;
     }
 
   code {
