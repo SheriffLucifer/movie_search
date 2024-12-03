@@ -9,7 +9,7 @@
     .input {
         width: 940px;
         @include respond(mobile) {
-            width: 340px;
+            width: 370px;
         }
     }
 }

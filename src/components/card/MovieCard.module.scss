@@ -1,3 +1,5 @@
+@import '../../assets/_mixins.scss';
+
 .card {
     width: 450px;
     height: 278px;
@@ -5,10 +7,22 @@
     margin: 20px;
     box-shadow: 0 4px 12px 0 rgba(0, 0, 0, 0.15);
 
+    @include respond(mobile) {
+        max-width: 388px;
+    }
+
     .picture {
         width: 185px !important;
         height: 100%;
         margin-top: 1px;
+
+        @include respond(mobile) {
+            position: absolute;
+            top: 6px;
+            left: 10px;
+            max-width: 60px;
+            height: 90px;
+        }
     }
 
     .rating {
@@ -20,17 +34,31 @@
         font-weight: 400;
         font-size: 12px;
         line-height: 22px;
+
+        @include respond(mobile) {
+            top: 5px;
+        }
     }
 
     .card__body {
         width: 260px;
         padding: 15px;
 
+        @include respond(mobile) {
+            width: 360px;
+            padding: 10px;
+        }
+
         .title {
             width: 132px;
             font-size: 20px;
             line-height: 28px;
             font-weight: 400px;
+
+            @include respond(mobile) {
+                margin-top: -5px;
+                margin-left: 80px;
+            }
 
             .release {
                 font-size: 12px;
@@ -58,6 +86,12 @@
             line-height: 22px;
             color: black;
             margin: 0;
+
+            @include respond(mobile) {
+                width: 360px;
+                margin-left: 5px;
+                margin-top: 25px;
+            }
         }
     }
 
@@ -66,5 +100,10 @@
         bottom: 10px;
         font-size: 16.5px;
         margin-left: 15px;
+
+        @include respond(mobile) {
+            right: 10px;
+            bottom: 15px;
+        }
     }
 }

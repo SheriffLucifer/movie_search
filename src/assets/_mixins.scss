@@ -7,6 +7,6 @@
     @if $breakpoint == mobile {
         @media only screen and (max-width: 26.5625em) {
             @content;
-        } //414px
+        } //420px
     }
 }

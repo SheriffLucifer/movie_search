@@ -1,4 +1,9 @@
+@import '../../assets/mixins';
+
 .list {
     width: 1010px;
     margin: 0 auto;
+    @include respond(mobile) {
+        max-width: 420px;
+    }
 }

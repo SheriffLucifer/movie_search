@@ -13,7 +13,7 @@ const MovieList: React.FC<MovieListProps> = ({ movies, onRate }) => {
     return (
         <Row className={styles.list}>
             {movies.map(movie => (
-                <Col key={movie.id} xs={24} md={12}>
+                <Col key={movie.id} xs={20} md={12}>
                     <MovieCard onRate={onRate} movie={movie} />
                 </Col>
             ))}
