@@ -1,6 +1,6 @@
 import { Tabs } from 'antd';
-import SearchMovie from '../components/search/SearchMovie';
-import RatedMovies from '../components/ratedMovies/RatedMovies';
+import SearchMovie from './components/search/SearchMovie';
+import RatedMovies from './components/ratedMovies/RatedMovies';
 
 const App: React.FC = () => {
     const items = [
