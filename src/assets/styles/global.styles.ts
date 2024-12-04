@@ -12,7 +12,16 @@ export default createGlobalStyle`
   
   .ant-card .ant-card-body {
         padding: 0;
-    }
+  }
+
+  .ant-pagination-item-active {
+      background-color: #1890ff !important;
+      border-color: #1890ff !important;
+  }
+
+  .ant-pagination-item-active a {
+    color: #ffffff !important;
+  }
 
   code {
     font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
