@@ -1,11 +1,12 @@
 import React, { useState } from 'react';
-import { Alert, Pagination, Spin } from 'antd';
+import { Alert, Spin } from 'antd';
 import SearchForm from './component/SearchForm';
 import { Movie } from '../../types/Movie';
 import api from '../../api/api';
 import MovieList from '../list/MovieList';
 import { useRatedMovies } from '../../context/RatedMoviesProvider';
 import styles from './SearchMovie.module.scss';
+import Pagination from '../ui/Pagination';
 
 const SearchMovie: React.FC = () => {
     const [movies, setMovies] = useState<Movie[]>([]);
@@ -74,7 +75,6 @@ const SearchMovie: React.FC = () => {
                     <MovieList movies={moviesWithRatings} onRate={handleRateMovie} />
                     {totalPages > 1 && (
                         <Pagination
-                            className={styles.pagination}
                             current={currentPage}
                             total={totalPages * 10}
                             onChange={page => {
