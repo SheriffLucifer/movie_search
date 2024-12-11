@@ -14,7 +14,7 @@ const Pagination: React.FC<PaginationProps> = ({ current, total, pageSize, onCha
         <AntPagination
             current={current}
             total={total}
-            pageSize={10}
+            pageSize={pageSize}
             onChange={onChange}
             showSizeChanger={false}
             className={styles.pagination}

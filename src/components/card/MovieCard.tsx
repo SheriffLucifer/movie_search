@@ -64,7 +64,7 @@ const MovieCard: React.FC<MovieCardProps> = ({ movie, onRate }) => {
                         </div>
                     </div>
                 }
-                description={<p className={styles.overview}>{truncateText(overview, 200)}</p>}
+                description={<p className={styles.overview}>{truncateText(overview, 150)}</p>}
             />
             <Rate className={styles.stars} count={10} value={user_rating || 0} onChange={handleRate} allowHalf />
         </Card>

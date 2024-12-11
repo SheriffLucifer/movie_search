@@ -6,10 +6,13 @@ import { RatedMoviesProvider } from './context/RatedMoviesProvider';
 
 const root = ReactDOM.createRoot(document.getElementById('root') as HTMLElement);
 root.render(
-    <RatedMoviesProvider>
-        <GenreProvider>
-            <App />
-            <GlobalStyles />
-        </GenreProvider>
-    </RatedMoviesProvider>
+    <>
+        <GlobalStyles />
+        <RatedMoviesProvider>
+            <GenreProvider>
+                <App />
+            </GenreProvider>
+        </RatedMoviesProvider>
+        \
+    </>
 );

@@ -10,7 +10,7 @@ interface GenreContextProps {
     genres: Genre[];
 }
 
-export const GenreContext = createContext<GenreContextProps | undefined>(undefined);
+const GenreContext = createContext<GenreContextProps | undefined>(undefined);
 
 export const GenreProvider: React.FC<{ children: React.ReactNode }> = ({ children }) => {
     const [genres, setGenres] = useState<Genre[]>([]);
