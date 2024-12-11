@@ -1,6 +1,6 @@
 import React from 'react';
-import { useRatedMovies } from '../../context/RatedMoviesProvider';
 import MovieList from '../list/MovieList';
+import { useRatedMovies } from '../../hooks/useRatedMovies';
 
 const RatedMovies: React.FC = () => {
     const { ratedMovies } = useRatedMovies();
@@ -11,7 +11,7 @@ const RatedMovies: React.FC = () => {
         return <p style={{ textAlign: 'center', fontSize: 48 }}>Вы пока не оценили ни одного фильма.</p>;
     }
 
-    return <MovieList movies={ratedMoviesArray} onRate={() => {}} />;
+    return <MovieList movies={ratedMoviesArray} />;
 };
 
 export default RatedMovies;

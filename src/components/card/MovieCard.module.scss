@@ -11,7 +11,7 @@
         max-width: 388px;
     }
 
-    .picture {
+    & .picture {
         width: 185px !important;
         height: 100%;
         margin-top: 1px;
@@ -25,7 +25,7 @@
         }
     }
 
-    .rating {
+    & .rating {
         position: absolute;
         top: 10px;
         right: 10px;
@@ -38,9 +38,19 @@
         @include respond(mobile) {
             top: 5px;
         }
+
+        & .rating__position {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            font-size: 12px;
+            font-weight: 400px;
+            color: black;
+        }
     }
 
-    .card__body {
+    & .card__body {
         width: 260px;
         padding: 15px;
 
@@ -49,7 +59,7 @@
             padding: 10px;
         }
 
-        .title {
+        & .title {
             width: 132px;
             font-size: 20px;
             line-height: 28px;
@@ -60,7 +70,7 @@
                 margin-left: 80px;
             }
 
-            .release {
+            & .release {
                 font-size: 12px;
                 line-height: 22px;
                 font-weight: 400px;
@@ -68,7 +78,7 @@
                 margin-top: 5px;
             }
 
-            .genres {
+            & .genres {
                 display: inline-block;
                 padding: 4px;
                 margin-top: 10px;
@@ -81,7 +91,7 @@
             }
         }
 
-        .overview {
+        & .overview {
             font-size: 12px;
             line-height: 22px;
             color: black;
@@ -95,7 +105,7 @@
         }
     }
 
-    .stars {
+    & .stars {
         position: absolute;
         bottom: 10px;
         font-size: 16.5px;

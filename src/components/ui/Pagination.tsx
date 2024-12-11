@@ -9,17 +9,14 @@ interface PaginationProps {
     onChange: (page: number) => void;
 }
 
-const Pagination: React.FC<PaginationProps> = ({ current, total, pageSize, onChange }) => {
-    return (
-        <AntPagination
-            current={current}
-            total={total}
-            pageSize={pageSize}
-            onChange={onChange}
-            showSizeChanger={false}
-            className={styles.pagination}
-        />
-    );
-};
-
+const Pagination: React.FC<PaginationProps> = ({ current, total, pageSize, onChange }) => (
+    <AntPagination
+        current={current}
+        total={total}
+        pageSize={pageSize}
+        onChange={onChange}
+        showSizeChanger={false}
+        className={styles.pagination}
+    />
+);
 export default Pagination;

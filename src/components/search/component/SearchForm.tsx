@@ -2,14 +2,18 @@ import React, { useState } from 'react';
 import { Input } from 'antd';
 import styles from './SearchForm.module.scss';
 
-const { Search } = Input;
-
 interface SearchFormProps {
     onSearch: (query: string) => void;
 }
 
 const SearchForm: React.FC<SearchFormProps> = ({ onSearch }) => {
     const [query, setQuery] = useState('');
+
+    const { Search } = Input;
+
+    const handleQueryChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+        setQuery(e.target.value);
+    };
 
     const handleSearch = () => {
         onSearch(query);
@@ -21,7 +25,7 @@ const SearchForm: React.FC<SearchFormProps> = ({ onSearch }) => {
                 className={styles.input}
                 placeholder='Type to search...'
                 value={query}
-                onChange={e => setQuery(e.target.value)}
+                onChange={handleQueryChange}
                 onSearch={handleSearch}
                 enterButton
             />

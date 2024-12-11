@@ -1,15 +1,20 @@
-import React, { createContext, useContext, useState } from 'react';
+import React, { createContext, useState } from 'react';
 import { Movie } from '../types/Movie';
 
+interface RatedMovie {
+    movie: Movie;
+    rating: number;
+}
+
 interface RatedMoviesContextProps {
-    ratedMovies: Record<number, { movie: Movie; rating: number }>;
+    ratedMovies: Record<number, RatedMovie>;
     addRatedMovie: (movieId: number, movie: Movie, rating: number) => void;
 }
 
-const RatedMoviesContext = createContext<RatedMoviesContextProps | undefined>(undefined);
+export const RatedMoviesContext = createContext<RatedMoviesContextProps | undefined>(undefined);
 
 export const RatedMoviesProvider: React.FC<{ children: React.ReactNode }> = ({ children }) => {
-    const [ratedMovies, setRatedMovies] = useState<Record<number, { movie: Movie; rating: number }>>({});
+    const [ratedMovies, setRatedMovies] = useState<Record<number, RatedMovie>>({});
 
     const addRatedMovie = (movieId: number, movie: Movie, rating: number) => {
         setRatedMovies(prev => ({
@@ -19,12 +24,4 @@ export const RatedMoviesProvider: React.FC<{ children: React.ReactNode }> = ({ c
     };
 
     return <RatedMoviesContext.Provider value={{ ratedMovies, addRatedMovie }}>{children}</RatedMoviesContext.Provider>;
-};
-
-export const useRatedMovies = () => {
-    const context = useContext(RatedMoviesContext);
-    if (!context) {
-        throw new Error('useRatedMovies must be used within RatedMoviesProvider');
-    }
-    return context;
 };

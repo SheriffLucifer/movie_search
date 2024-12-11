@@ -6,7 +6,7 @@
     margin-top: 30px;
     text-align: center;
 
-    .input {
+    & .input {
         width: 940px;
         @include respond(mobile) {
             width: 370px;

@@ -4,15 +4,15 @@ import SearchForm from './component/SearchForm';
 import { Movie } from '../../types/Movie';
 import api from '../../api/api';
 import MovieList from '../list/MovieList';
-import { useRatedMovies } from '../../context/RatedMoviesProvider';
 import styles from './SearchMovie.module.scss';
 import Pagination from '../ui/Pagination';
+import { useRatedMovies } from '../../hooks/useRatedMovies';
 
 const SearchMovie: React.FC = () => {
     const [movies, setMovies] = useState<Movie[]>([]);
-    const [loading, setLoading] = useState<boolean>(false);
+    const [loading, setLoading] = useState(false);
     const [error, setError] = useState<string | null>(null);
-    const [offline, setOffline] = useState<boolean>(false);
+    const [offline, setOffline] = useState(false);
     const [query, setQuery] = useState<string>('');
     const [currentPage, setCurrentPage] = useState(1);
     const [totalPages, setTotalPages] = useState(0);
@@ -50,6 +50,11 @@ const SearchMovie: React.FC = () => {
 
     const moviesWithRatings = movies.map(movie => ({ ...movie, user_rating: ratedMovies[movie.id]?.rating || 0 }));
 
+    const handleChangePage = (page: number) => {
+        setCurrentPage(page);
+        searchMovies(query, page);
+    };
+
     return (
         <div className={styles.content}>
             <SearchForm
@@ -77,10 +82,7 @@ const SearchMovie: React.FC = () => {
                         <Pagination
                             current={currentPage}
                             total={totalPages * 10}
-                            onChange={page => {
-                                setCurrentPage(page);
-                                searchMovies(query, page);
-                            }}
+                            onChange={handleChangePage}
                             pageSize={10}
                         />
                     )}

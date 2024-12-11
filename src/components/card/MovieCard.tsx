@@ -10,7 +10,7 @@ import { truncateTitle } from '../../utils/truncateTitle';
 
 interface MovieCardProps {
     movie: Movie;
-    onRate: (movie: Movie, rating: number) => void;
+    onRate?: (movie: Movie, rating: number) => void;
 }
 
 const MovieCard: React.FC<MovieCardProps> = ({ movie, onRate }) => {
@@ -21,8 +21,8 @@ const MovieCard: React.FC<MovieCardProps> = ({ movie, onRate }) => {
         return genre_ids.map(id => genres.find(genre => genre.id === id)?.name).filter(Boolean);
     }, [genre_ids, genres]);
 
-    const handleRate = async (value: number) => {
-        onRate(movie, value);
+    const handleRate = (value: number) => {
+        if (onRate) onRate(movie, value);
         message.success(`Вы поставили фильму ${title} оценку ${value}`);
     };
 
@@ -35,19 +35,7 @@ const MovieCard: React.FC<MovieCardProps> = ({ movie, onRate }) => {
                 <svg width='34' height='34' viewBox='0 0 34 34' fill='none' xmlns='http://www.w3.org/2000/svg'>
                     <circle cx='17' cy='17' r='16' stroke={getRatingColor(vote_average)} strokeWidth='2' />
                 </svg>
-                <span
-                    style={{
-                        position: 'absolute',
-                        top: '50%',
-                        left: '50%',
-                        transform: 'translate(-50%, -50%)',
-                        fontSize: '12px',
-                        fontWeight: 400,
-                        color: '#000',
-                    }}
-                >
-                    {vote_average.toFixed(1)}
-                </span>
+                <span className={styles.rating__position}>{vote_average.toFixed(1)}</span>
             </div>
             <Card.Meta
                 className={styles.card__body}
